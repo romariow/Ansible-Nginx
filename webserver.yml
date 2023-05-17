@@ -1,0 +1,51 @@
+---
+
+- hosts: all
+
+  tasks:
+    - ping: ~
+    - name: Update APT package manager repositories cache
+      become: true
+      apt:
+        update_cache: yes
+    - name: Upgrade installed packages
+      become: true
+      apt:
+        upgrade: safe  
+
+
+
+#Install Nginx
+    - name: Install Nginx web server
+      become: true
+      apt:
+        name: nginx
+        state: latest
+# Install PHP 
+    - name: Install PHP CLI
+      become: true
+      apt:
+        name: php7.4-cli
+        state: latest
+    - name: Install PHP FPM
+      become: true
+      apt:
+        name: php7.4-curl
+        state: latest
+    - name: Install PHP fpm
+      become: true
+      apt:
+        name: php7.4-fpm
+        state: latest
+    - name: Install PHP json
+      become: true
+      apt:
+        name: php7.4-json
+        state: latest
+#Install mysql
+    - name: Install MySQL DB server
+      become: true
+      apt:
+        name: mysql-server
+        state: latest
+
