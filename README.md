@@ -36,4 +36,3 @@ ansible -i hosts.ini all -m ping
 
 
 # Ansible-Nginx
-# Ansible-Nginx
